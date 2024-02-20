@@ -1,0 +1,19 @@
+
+#sudo apt update version in ansible:
+# -a argument to a module
+ansible all -m apt -a update-cache=true
+#will output "failed to lock apt for exclusive operation" -> needs sudo permissions
+ansible all -m apt -a update-cache=true
+#will be prompted: "BECOME password:" password for user account
+
+#install a package unto all servers with one command
+ansible all -m apt -a name=vim-nox --become --ask-become-pass
+
+ansible all -m apt -a name=tmux --become --ask-become-pass
+
+var/log/apt will show log file for apt
+
+ansible all -m apt -a name=snapd state=latest" --become --ask-become-pass
+
+
+
