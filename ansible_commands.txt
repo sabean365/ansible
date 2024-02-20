@@ -1,0 +1,20 @@
+# to install ansible on a linux servers
+sudo apt update
+sudo apt install ansible
+
+# to add SSH key to all servers in inventory file using ping module
+# -i = input -m = module
+ansible all --key-file  ~/.ssh/ansible -i inventory -m ping
+# output should show IP | SUCCESS -> { "ansible facts" + server info }
+
+#Once ansible.cfg file is added, command is:
+ansible all -m ping
+
+ansible all --list-hosts
+#Outputs list of servers
+
+ansible all -M gather-facts
+#Outputs info about all servers
+
+ansible all -m gather-hosts --limit 172.10.250.132
+#Outputs info about one server
