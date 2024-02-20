@@ -1,0 +1,12 @@
+#install apache2
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+    - name: install apache2 pkg
+      apt:
+        name: apache2
+
+# to run: ansible-playbook --ask-become-pass apache2_playbook.yml
