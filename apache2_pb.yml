@@ -19,4 +19,7 @@
         name: libapache2-mod-php
         state: latest
 
-# to run: ansible-playbook --ask-become-pass apache2_playbook.yml
+# to run: ansible-playbook apache2_pb.yml --ask-become-pass apache2_playbook.yml
+# to remove: cp apache2_pb.yml remove_apache.yml
+   # change state: absent
+   # run: ansible-playbook --ask-become-pass remove_apache.yml
