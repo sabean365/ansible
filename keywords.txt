@@ -247,73 +247,49 @@ Task
     
     environment: A dictionary that gets converted into environment vars to be provided for the task upon execution. This can ONLY be used with modules. This is not supported for any other type of plugins nor Ansible itself nor its configuration, it just sets the variables for the code responsible for executing the task. This is not a recommended way to pass in confidential data.
     
-    failed_when
-
-        Conditional expression that overrides the task’s normal ‘failed’ status.
-    ignore_errors
-
-        Boolean that allows you to ignore task failures and continue with play. It does not affect connection errors.
-    ignore_unreachable
-
-        Boolean that allows you to ignore task failures due to an unreachable host and continue with the play. This does not affect other task errors (see ignore_errors) but is useful for groups of volatile/ephemeral hosts.
-    local_action
-
-        Same as action but also implies delegate_to: localhost
-    loop
-
-        Takes a list for the task to iterate over, saving each list element into the item variable (configurable via loop_control)
-    loop_control
-
-        Several keys here allow you to modify/set loop behavior in a task. See Adding controls to loops.
-    module_defaults
-
-        Specifies default parameter values for modules.
-    name
-
-        Identifier. Can be used for documentation, or in tasks/handlers.
-    no_log
-
-        Boolean that controls information disclosure.
-    notify
-
-        List of handlers to notify when the task returns a ‘changed=True’ status.
-    poll
-
-        Sets the polling interval in seconds for async tasks (default 10s).
-    port
-
-        Used to override the default port used in a connection.
-    register
-
-        Name of variable that will contain task status and module return data.
-    remote_user
-
-        User used to log into the target via the connection plugin.
-    retries
-
-        Number of retries before giving up in a until loop. This setting is only used in combination with until.
-    run_once
-
-        Boolean that will bypass the host loop, forcing the task to attempt to execute on the first host available and afterward apply any results and facts to all active hosts in the same batch.
-    tags
-
-        Tags applied to the task or included tasks, this allows selecting subsets of tasks from the command line.
-    throttle
-
-        Limit the number of concurrent task runs on task, block and playbook level. This is independent of the forks and serial settings, but cannot be set higher than those limits. For example, if forks is set to 10 and the throttle is set to 15, at most 10 hosts will be operated on in parallel.
-    timeout
-
-        Time limit for the task to execute in, if exceeded Ansible will interrupt and fail the task.
-    until
-
-        This keyword implies a ‘retries loop’ that will go on until the condition supplied here is met or we hit the retries limit.
-    vars
-
-        Dictionary/map of variables
-    when
-
-        Conditional expression, determines if an iteration of a task is run or not.
-    with_<lookup_plugin>
-
-        The same as loop but magically adds the output of any lookup plugin to generate the item list.
+    failed_when: Conditional expression that overrides the task’s normal ‘failed’ status.
+    
+    ignore_errors: Boolean that allows you to ignore task failures and continue with play. It does not affect connection errors.
+   
+    ignore_unreachable: Boolean that allows you to ignore task failures due to an unreachable host and continue with the play. This does not affect other task errors (see ignore_errors) but is useful for groups of volatile/ephemeral hosts.
+    
+    local_action: Same as action but also implies delegate_to: localhost
+    
+    loop: Takes a list for the task to iterate over, saving each list element into the item variable (configurable via loop_control)
+    
+    loop_control: Several keys here allow you to modify/set loop behavior in a task. See Adding controls to loops.
+    
+    module_defaults: Specifies default parameter values for modules.
+    
+    name: Identifier. Can be used for documentation, or in tasks/handlers.
+    
+    no_log: Boolean that controls information disclosure.
+    
+    notify: List of handlers to notify when the task returns a ‘changed=True’ status.
+    
+    poll: Sets the polling interval in seconds for async tasks (default 10s).
+    
+    port: Used to override the default port used in a connection.
+    
+    register: Name of variable that will contain task status and module return data.
+    
+    remote_user: User used to log into the target via the connection plugin.
+    
+    retries: Number of retries before giving up in a until loop. This setting is only used in combination with until.
+    
+    run_once: Boolean that will bypass the host loop, forcing the task to attempt to execute on the first host available and afterward apply any results and facts to all active hosts in the same batch.
+    
+    tags: Tags applied to the task or included tasks, this allows selecting subsets of tasks from the command line.
+    
+    throttle: Limit the number of concurrent task runs on task, block and playbook level. This is independent of the forks and serial settings, but cannot be set higher than those limits. For example, if forks is set to 10 and the throttle is set to 15, at most 10 hosts will be operated on in parallel.
+    
+    timeout: Time limit for the task to execute in, if exceeded Ansible will interrupt and fail the task.
+    
+    until: This keyword implies a ‘retries loop’ that will go on until the condition supplied here is met or we hit the retries limit.
+    
+    vars: Dictionary/map of variables
+    
+    when: Conditional expression, determines if an iteration of a task is run or not.
+    
+    with_<lookup_plugin>: The same as loop but magically adds the output of any lookup plugin to generate the item list.
 
