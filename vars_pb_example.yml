@@ -1,0 +1,21 @@
+- hosts: cloud
+  gather_facts: false
+  become: true
+  vars:
+    ansible_become_user: admin
+  tasks:
+    - name: This task uses admin as the become user.
+      dnf:
+        name: some-service
+        state: latest
+    - block:
+        - name: This task uses service-admin as the become user.
+          # a task to configure the new service
+        - name: This task also uses service-admin as the become user, defined in the block.
+          # second task to configure the service
+      vars:
+        ansible_become_user: service-admin
+    - name: This task (outside of the block) uses admin as the become user again.
+      service:
+        name: some-service
+        state: restarted

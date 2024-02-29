@@ -1,0 +1,28 @@
+# copy_file.yml
+
+- name: copy files to destination
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copy src.txt as dest.txt in the same dir
+      copy:
+        src: files/src.txt
+        dest: files/dest.txt
+      tags:
+        - simple_copy
+
+#If file is already present
+# copy_file.yml
+
+- name: copy files to destination
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: no force copy src.txt as dest.txt in the same dir 
+      copy:
+        src: files/src.txt
+        dest: files/dest.txt
+        force: no
+      tags:
+        - simple_copy_no_force<code class="language-yaml">
+</code>

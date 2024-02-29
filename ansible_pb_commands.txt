@@ -1,0 +1,18 @@
+#Command to run ansible playbook with hosts located at /etc/ansible/hosts
+ansible-playbook sampleplaybook.yml hosts
+
+#where ansible_hosts is a custom directory
+
+
+#Command to run ansible playbook with custom hosts file
+ansible-playbook sampleplaybook.yml -i ansible_hosts
+
+
+#Command to dry-run the playbook using above command with custom hosts
+ansible-playbook -C sampleplaybook.yml -i ansible_hosts
+
+#Syntax check
+ansible-playbook – syntax-check sampleplaybook.yml -i ansible_hosts
+
+
+

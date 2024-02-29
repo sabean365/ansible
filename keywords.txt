@@ -1,3 +1,4 @@
+#play (most general)
 PLAY
 
     any_errors_fatal: Force any un-handled task errors on any host to propagate to all hosts and end the play.
@@ -84,6 +85,7 @@ PLAY
 
     vars_prompt: list of variables to prompt for.
 
+#blocks/includes/imports/roles (optional and can contain tasks and each other)
 Role:
 
     any_errors_fatal: Force any un-handled task errors on any host to propagate to all hosts and end the play.
@@ -206,6 +208,7 @@ Block
     
     when: Conditional expression, determines if an iteration of a task is run or not.
 
+#tasks (most specific)
 Task
 
     action: The ‘action’ to execute for a task, it normally translates into a C(module) or action plugin.

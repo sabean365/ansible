@@ -1,0 +1,25 @@
+
+#This is an example playbook to add user and group
+- name: Add User and Group
+  hosts: node1
+  become: true
+  vars:
+    username: john
+    groupname: accounting
+- tasks:
+    - name: Add group
+      group:
+        name: "{{ groupname }}"
+        state: present
+    - name: Add user
+      user:
+        name: "{{ username }}"
+        group: "{{ groupname }}"
+        state: present
+        shell: /bin/bash
+    - name: Set user password
+      user:
+        name: "{{ username }}"
+        password: "{{ 'password' | password_hash('sha512') }}"
+
+#To run: ansible-playbook add_user_pb_example.yaml
